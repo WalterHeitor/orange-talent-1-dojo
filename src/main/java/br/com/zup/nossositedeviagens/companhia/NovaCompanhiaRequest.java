@@ -18,5 +18,11 @@ public class NovaCompanhiaRequest {
         return new Companhia(nome, pais);
     }
 
+    public String getNome() {
+        return nome;
+    }
 
+    public Long getIdPais() {
+        return idPais;
+    }
 }
