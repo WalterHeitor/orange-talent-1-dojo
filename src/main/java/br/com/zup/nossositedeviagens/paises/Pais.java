@@ -1,5 +1,7 @@
 package br.com.zup.nossositedeviagens.paises;
 
+import java.util.Map;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,4 +21,10 @@ public class Pais {
     public Pais(String nome){
         this.nome = nome;
     }
+
+	public Long getId() {
+		return id;
+	}
+
+		
 }

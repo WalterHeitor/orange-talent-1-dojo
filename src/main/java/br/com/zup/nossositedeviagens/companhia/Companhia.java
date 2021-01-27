@@ -3,6 +3,7 @@ package br.com.zup.nossositedeviagens.companhia;
 import br.com.zup.nossositedeviagens.paises.Pais;
 
 import javax.persistence.*;
+import javax.validation.constraints.AssertFalse;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ public class Companhia {
     private Long id;
 
     @NotBlank
+    @Column(nullable = false, unique = true)
     private String nome;
 
     private LocalDateTime instanteCriacao;
@@ -28,4 +30,11 @@ public class Companhia {
         this.pais = pais;
         this.instanteCriacao = LocalDateTime.now();
     }
+
+	public Long getId() {
+		return id;
+	}
+
+	   
+    
 }

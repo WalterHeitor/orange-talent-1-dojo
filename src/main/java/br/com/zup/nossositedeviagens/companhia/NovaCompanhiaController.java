@@ -23,7 +23,7 @@ public class NovaCompanhiaController {
     public ResponseEntity<?> criar(@RequestBody @Valid NovaCompanhiaRequest request, UriComponentsBuilder uriBuilder){
         Companhia companhia = request.toModel(entityManager);
         entityManager.persist(companhia);
-        URI location = uriBuilder.path("/api/companhias").buildAndExpand(3).toUri();
+        URI location = uriBuilder.path("/api/companhias/{id}").buildAndExpand(companhia.getId()).toUri();
         return ResponseEntity.created(location).build();
     }
 
