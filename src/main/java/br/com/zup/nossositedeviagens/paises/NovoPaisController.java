@@ -16,6 +16,8 @@ public class NovoPaisController {
     public ResponseEntity<?> criar(@RequestBody @Valid NovoPaisRequest request,
                                    UriComponentsBuilder uriBuilder) {
 
+        Pais pais = request.paraPais();
+
         URI location = uriBuilder.path("/api/paises")
                                  .buildAndExpand(3)
                                  .toUri();
