@@ -1,9 +1,6 @@
 package br.com.zup.nossositedeviagens.paises;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Pais {
@@ -11,6 +8,7 @@ public class Pais {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String nome;
 
     @Deprecated
