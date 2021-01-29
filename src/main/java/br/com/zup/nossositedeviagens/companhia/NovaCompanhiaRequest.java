@@ -10,6 +10,7 @@ public class NovaCompanhiaRequest {
 
     @NotBlank
     private String nome;
+    
     @NotNull
     private Long idPais;
 
