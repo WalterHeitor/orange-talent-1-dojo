@@ -14,7 +14,7 @@ import javax.validation.Payload;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE })
 public @interface UniqueValue {
-	String message() default "{unique.value.violation}";
+	String message() default "já existe.";
 
 	Class<?>[] groups() default {};
 

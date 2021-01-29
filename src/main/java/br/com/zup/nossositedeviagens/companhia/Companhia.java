@@ -1,6 +1,7 @@
 package br.com.zup.nossositedeviagens.companhia;
 
 import br.com.zup.nossositedeviagens.paises.Pais;
+import br.com.zup.nossositedeviagens.validation.UniqueValue;
 
 import javax.persistence.*;
 import javax.validation.constraints.AssertFalse;
