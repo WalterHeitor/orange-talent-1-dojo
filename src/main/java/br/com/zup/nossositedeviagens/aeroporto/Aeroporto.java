@@ -44,4 +44,8 @@ public class Aeroporto {
     public Pais getPais() {
         return pais;
     }
+
+    public String getNome() {
+        return nome;
+    }
 }

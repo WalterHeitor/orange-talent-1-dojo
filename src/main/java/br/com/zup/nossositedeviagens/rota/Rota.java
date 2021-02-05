@@ -27,6 +27,9 @@ public class Rota {
     public Rota(){}
 
     public Rota(String nome, Aeroporto aeroportoOrigem, Aeroporto aeroportoDestino, LocalDateTime duracao) {
+        if (nome == null) {
+            this.nome = aeroportoOrigem.getNome() +"-" + aeroportoDestino.getNome();
+        }
         this.nome = nome;
         this.aeroportoOrigem = aeroportoOrigem;
         this.aeroportoDestino = aeroportoDestino;
