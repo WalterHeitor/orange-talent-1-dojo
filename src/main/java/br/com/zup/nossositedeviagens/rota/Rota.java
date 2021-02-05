@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-//@Entity
+@Entity
 public class Rota {
 
     @Id
@@ -15,8 +15,10 @@ public class Rota {
 
     private String nome;
 
+    @ManyToOne
     private Aeroporto aeroportoOrigem;
 
+    @ManyToOne
     private Aeroporto aeroportoDestino;
 
     private LocalDateTime duracao;
@@ -29,5 +31,25 @@ public class Rota {
         this.aeroportoOrigem = aeroportoOrigem;
         this.aeroportoDestino = aeroportoDestino;
         this.duracao = duracao;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Aeroporto getAeroportoOrigem() {
+        return aeroportoOrigem;
+    }
+
+    public Aeroporto getAeroportoDestino() {
+        return aeroportoDestino;
+    }
+
+    public LocalDateTime getDuracao() {
+        return duracao;
     }
 }

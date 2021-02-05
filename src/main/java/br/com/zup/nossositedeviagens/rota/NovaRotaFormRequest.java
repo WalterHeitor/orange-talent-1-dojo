@@ -32,6 +32,20 @@ public class NovaRotaFormRequest {
 		Aeroporto aeroportoDestino = manager.find(Aeroporto.class, idAeroportoDestino);
 		return new Rota(nome, aeroportoOrigem, aeroportoDestino, duracao);
 	}
-	
-	
+
+	public String getNome() {
+		return nome;
+	}
+
+	public Long getIdAeroportoOrigem() {
+		return idAeroportoOrigem;
+	}
+
+	public Long getIdAeroportoDestino() {
+		return idAeroportoDestino;
+	}
+
+	public LocalDateTime getDuracao() {
+		return duracao;
+	}
 }
