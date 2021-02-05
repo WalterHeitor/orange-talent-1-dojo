@@ -1,10 +1,14 @@
 package br.com.zup.nossositedeviagens.rota;
 
-import br.com.zup.nossositedeviagens.aeroporto.Aeroporto;
-
-import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import br.com.zup.nossositedeviagens.aeroporto.Aeroporto;
 
 @Entity
 public class Rota {
