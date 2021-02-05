@@ -22,6 +22,8 @@ public class NovaRotaFormRequest {
 
 	public Rota toModel(EntityManager manager) {
 		Aeroporto aeroportoOrigem = manager.find(Aeroporto.class, idAeroportoOrigem);
+		Aeroporto aeroportoDestino = manager.find(Aeroporto.class, idAeroportoDestino);
+		return new Rota(nome, aeroportoOrigem, aeroportoDestino, duracao);
 	}
 	
 	
