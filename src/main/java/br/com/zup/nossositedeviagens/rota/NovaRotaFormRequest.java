@@ -1,8 +1,28 @@
 package br.com.zup.nossositedeviagens.rota;
 
+import java.time.LocalDateTime;
+
+import javax.persistence.EntityManager;
+import javax.validation.constraints.NotNull;
+
+import br.com.zup.nossositedeviagens.aeroporto.Aeroporto;
+
 public class NovaRotaFormRequest {
 
 	private String nome;
 	
-	private Long idAeroporto;
+	@NotNull
+	private Long idAeroportoOrigem;
+	
+	@NotNull
+	private Long idAeroportoDestino;
+	
+	@NotNull
+	private LocalDateTime duracao;
+
+	public Rota toModel(EntityManager manager) {
+		Aeroporto aeroportoOrigem = manager.find(Aeroporto.class, idAeroportoOrigem);
+	}
+	
+	
 }
