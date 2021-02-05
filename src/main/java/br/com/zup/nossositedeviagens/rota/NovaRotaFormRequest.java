@@ -20,6 +20,13 @@ public class NovaRotaFormRequest {
 	@NotNull
 	private LocalDateTime duracao;
 
+	public NovaRotaFormRequest(String nome, @NotNull Long idAeroportoOrigem, @NotNull Long idAeroportoDestino, @NotNull LocalDateTime duracao) {
+		this.nome = nome;
+		this.idAeroportoOrigem = idAeroportoOrigem;
+		this.idAeroportoDestino = idAeroportoDestino;
+		this.duracao = duracao;
+	}
+
 	public Rota toModel(EntityManager manager) {
 		Aeroporto aeroportoOrigem = manager.find(Aeroporto.class, idAeroportoOrigem);
 		Aeroporto aeroportoDestino = manager.find(Aeroporto.class, idAeroportoDestino);

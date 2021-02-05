@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,8 +19,10 @@ public class RotaController {
 
     @PostMapping("/api/rota")
     @Transactional
-    public ResponseEntity<?> criarRota(@RequestBody @Valid NovaRotaFormRequest request){
-
+    public ResponseEntity<?> criarRota(@RequestBody @Valid NovaRotaFormRequest request,
+                                       UriComponentsBuilder uriComponentsBuilder){
+    //Rota rota = request.toModel();
+    return ResponseEntity.ok().body(request);
 
     }
 }
