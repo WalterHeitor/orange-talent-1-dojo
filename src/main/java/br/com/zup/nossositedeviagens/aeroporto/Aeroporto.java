@@ -13,6 +13,7 @@ public class Aeroporto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
+    @Column(unique = true)
     private String nome;
     @NotNull
     @ManyToOne
@@ -34,5 +35,13 @@ public class Aeroporto {
                 ", nome='" + nome + '\'' +
                 ", pais=" + pais +
                 '}';
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Pais getPais() {
+        return pais;
     }
 }
