@@ -7,24 +7,38 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import br.com.zup.nossositedeviagens.validation.RotaUnicaValidator;
 
 @RestController
 public class RotaController {
 
     @PersistenceContext
     private EntityManager entityManager;
+    
+    @Autowired
+    private RotaUnicaValidator rotaUnicaValidator;
+    
+    @InitBinder
+    public void init(WebDataBinder bind) {
+    	bind.addValidators(rotaUnicaValidator);
+    }
 
     @PostMapping("/api/rota")
     @Transactional
     public ResponseEntity<?> criarRota(@RequestBody @Valid NovaRotaFormRequest request,
                                        UriComponentsBuilder uriComponentsBuilder) {
         Rota rota = request.toModel(entityManager);
+        
 
         entityManager.persist(rota);
 

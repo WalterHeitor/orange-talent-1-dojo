@@ -28,7 +28,7 @@ public class RotaUnicaValidator implements Validator {
         if (errors.hasErrors()){
             return ;
         }
-    	Query query = manager.createQuery("select 1 from Rota where aeroportoOrigem.id = :origem and aeroportoDestino.id = :destino");
+    	Query query = manager.createQuery("select 1 from Rota r where r.aeroportoOrigem.id = :origem and r.aeroportoDestino.id = :destino");
     	NovaRotaFormRequest request = (NovaRotaFormRequest) target;
     	query.setParameter("origem", request.getIdAeroportoOrigem());
     	query.setParameter("destino", request.getIdAeroportoDestino());

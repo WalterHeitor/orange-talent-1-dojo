@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonValueFormat;
 
 import br.com.zup.nossositedeviagens.aeroporto.Aeroporto;
 
@@ -20,7 +21,7 @@ public class NovaRotaFormRequest {
 	private Long idAeroportoDestino;
 	
 	@NotNull
-	@JsonFormat(pattern = "dd/MM/yyyy")
+	@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
 	private LocalDateTime duracao;
 
 	public NovaRotaFormRequest(String nome, @NotNull Long idAeroportoOrigem, @NotNull Long idAeroportoDestino, @NotNull LocalDateTime duracao) {
