@@ -21,10 +21,10 @@ public class NovaRotaFormRequest {
 	private Long idAeroportoDestino;
 	
 	@NotNull
-	@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
-	private LocalDateTime duracao;
+	//@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
+	private Integer duracao;
 
-	public NovaRotaFormRequest(String nome, @NotNull Long idAeroportoOrigem, @NotNull Long idAeroportoDestino, @NotNull LocalDateTime duracao) {
+	public NovaRotaFormRequest(String nome, @NotNull Long idAeroportoOrigem, @NotNull Long idAeroportoDestino, @NotNull Integer duracao) {
 		this.nome = nome;
 		this.idAeroportoOrigem = idAeroportoOrigem;
 		this.idAeroportoDestino = idAeroportoDestino;
@@ -49,7 +49,7 @@ public class NovaRotaFormRequest {
 		return idAeroportoDestino;
 	}
 
-	public LocalDateTime getDuracao() {
+	public Integer getDuracao() {
 		return duracao;
 	}
 }

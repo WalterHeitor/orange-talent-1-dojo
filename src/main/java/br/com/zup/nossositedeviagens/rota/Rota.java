@@ -28,14 +28,14 @@ public class Rota {
     @NotNull
     private Aeroporto aeroportoDestino;
 
-    private LocalDateTime duracao;
+    private Integer duracao;
 
     private boolean rotaUnica = false;
 
     @Deprecated
     public Rota(){}
 
-    public Rota(String nome, Aeroporto aeroportoOrigem, Aeroporto aeroportoDestino, LocalDateTime duracao) {
+    public Rota(String nome, Aeroporto aeroportoOrigem, Aeroporto aeroportoDestino, Integer duracao) {
         if (nome == null) {
             this.nome = aeroportoOrigem.getNome() +"-" + aeroportoDestino.getNome();
         }
@@ -61,7 +61,7 @@ public class Rota {
         return aeroportoDestino;
     }
 
-    public LocalDateTime getDuracao() {
+    public Integer getDuracao() {
         return duracao;
     }
 
