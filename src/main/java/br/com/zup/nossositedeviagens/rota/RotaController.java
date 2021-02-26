@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
+import br.com.zup.nossositedeviagens.validation.RotasIguaisValidador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,10 +28,13 @@ public class RotaController {
     
     @Autowired
     private RotaUnicaValidator rotaUnicaValidator;
+
+    @Autowired
+    private RotasIguaisValidador rotasIguaisValidador;
     
     @InitBinder
     public void init(WebDataBinder bind) {
-    	bind.addValidators(rotaUnicaValidator);
+    	bind.addValidators(rotaUnicaValidator, rotasIguaisValidador);
     }
 
     @PostMapping("/api/rota")
