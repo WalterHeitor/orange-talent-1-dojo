@@ -24,11 +24,15 @@ public class RotaUnicaValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-    	Query query = manager.createQuery("select 1 from Rota where aeroportoOrigem = :origem and aeroportoDestino = :destino");
-    	query.setParameter("origem", null);
-    	query.setParameter("destino", null);
+    	Query query = manager.createQuery("select 1 from Rota where aeroportoOrigem.id = :origem and aeroportoDestino.id = :destino");
+    	NovaRotaFormRequest request = (NovaRotaFormRequest) target;
+    	query.setParameter("origem", request.getIdAeroportoOrigem());
+    	query.setParameter("destino", request.getIdAeroportoDestino());
     	List<?> lista = query.getResultList();
     	Assert.state(lista.size() <= 1, "Já existe uma rota com essa origem e destino");
-    	return lista.isEmpty();
+
+    	if(lista.isEmpty()) {
+    	    return "A rota ou destino não pode ser vazia";
+        }
     }
 }

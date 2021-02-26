@@ -27,6 +27,8 @@ public class Rota {
 
     private LocalDateTime duracao;
 
+    private boolean rotaUnica = false;
+
     @Deprecated
     public Rota(){}
 
@@ -58,5 +60,13 @@ public class Rota {
 
     public LocalDateTime getDuracao() {
         return duracao;
+    }
+
+    public boolean isRotaUnica() {
+        return rotaUnica;
+    }
+
+    public void setRotaUnica() {
+        this.rotaUnica = true;
     }
 }
