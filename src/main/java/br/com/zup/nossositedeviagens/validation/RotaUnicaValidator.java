@@ -37,7 +37,7 @@ public class RotaUnicaValidator implements Validator {
     	Assert.state(lista.size() <= 1, "Já existe uma rota com essa origem e destino");
 
     	if(!lista.isEmpty()) {
-    	    errors.rejectValue("origem_destino", null,
+    	    errors.rejectValue("idAeroportoOrigem", null,
                     "Não pode ser repetido os destinos ou origem");
         }
     }
