@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 import br.com.zup.nossositedeviagens.aeroporto.Aeroporto;
 
@@ -20,9 +21,11 @@ public class Rota {
     private String nome;
 
     @ManyToOne
+    @NotNull
     private Aeroporto aeroportoOrigem;
 
     @ManyToOne
+    @NotNull
     private Aeroporto aeroportoDestino;
 
     private LocalDateTime duracao;
